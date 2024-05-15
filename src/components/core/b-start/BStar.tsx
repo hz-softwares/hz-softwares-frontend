@@ -94,7 +94,7 @@ export function BStar(props: Props) {
 	const nodesAndEdges = createMemo(() => {
 		const nodesList: Node[] = [];
 		buildNodes(nodesList, getTree().rootNode, 0, 500);
-    // TODO: do level traversal to adjust y position of nodes to not be overlap
+		// TODO: do level traversal to adjust y position of nodes to not be overlap
 		console.log("nodesList", nodesList, getTree().rootNode);
 
 		const edgesList: EdgeProps[] = [];
@@ -105,6 +105,7 @@ export function BStar(props: Props) {
 
 	return (
 		<div class="flex gap-10 flex-col">
+			<h2>B* Tree used in database for indexing data</h2>
 			<div class="flex gap-2 flex-row">
 				<input
 					type="text"

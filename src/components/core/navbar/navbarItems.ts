@@ -53,6 +53,10 @@ export const navbarItems = [
 				label: "gRPC",
 				href: "/communication/grpc",
 			},
+			{
+				label: "HTTP",
+				href: "/communication/http",
+			},
 		],
 	},
 	{
