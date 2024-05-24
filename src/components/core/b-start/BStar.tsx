@@ -1,4 +1,4 @@
-import { createMemo, createSignal } from "solid-js";
+import { createEffect, createMemo, createSignal } from "solid-js";
 import { Button } from "../../shared/button/Button";
 import { BStarNode, BStarTree } from "../../../types/tree/Tree";
 import { TreeNode } from "./TreeNode";
@@ -13,6 +13,7 @@ export function BStar(props: Props) {
 	let insertRef: HTMLInputElement | undefined = undefined;
 	const [getTree, setTree] = createSignal<BStarTree>(new BStarTree());
 	const [searchNode, setSearchNode] = createSignal<BStarNodeKey | undefined>(undefined);
+	const [rerender, setRerender] = createSignal<boolean>(false);
 	const [undoStack, setUndoStack] = createSignal<BStarTree[]>([]);
 	const insertList: string[] = [];
 
@@ -27,6 +28,7 @@ export function BStar(props: Props) {
 				insertList.push(value);
 				const newRoot = cloneDeep(prev);
 				setUndoStack((undoPrev) => [...undoPrev, prev]);
+				console.log("newRoo");
 				return newRoot;
 			}
 			return prev;
@@ -102,6 +104,13 @@ export function BStar(props: Props) {
 		console.log("edgesList", edgesList);
 		return { nodesList, edgesList };
 	});
+	createEffect(() => {
+		console.log("change in", nodesAndEdges());
+		setRerender(false);
+		setTimeout(() => {
+			setRerender(true);
+		}, 0);
+	});
 
 	return (
 		<div class="flex gap-10 flex-col">
@@ -174,17 +183,19 @@ export function BStar(props: Props) {
 				</Button>
 				{searchNode() && <span>found: {JSON.stringify(searchNode() ?? "")}</span>}
 			</div>
-			<SolidFlow
-				nodes={nodesAndEdges().nodesList}
-				edges={nodesAndEdges().edgesList}
-				onNodesChange={(newNodes) => {
-					console.log("onCHange", newNodes);
-					//setNodes(newNodes);
-				}}
-				onEdgesChange={(newEdges) => {
-					//setEdges(newEdges);
-				}}
-			/>
+			{rerender() && (
+				<SolidFlow
+					nodes={nodesAndEdges().nodesList}
+					edges={nodesAndEdges().edgesList}
+					onNodesChange={(newNodes) => {
+						console.log("onCHange", newNodes);
+						//setNodes(newNodes);
+					}}
+					onEdgesChange={(newEdges) => {
+						//setEdges(newEdges);
+					}}
+				/>
+			)}
 		</div>
 	);
 }
