@@ -29,6 +29,7 @@ Cargo.lock
 logs
 **/*.backup.*
 **/*.back.*
+*.d.ts
 
 node_modules/
 bower_components
