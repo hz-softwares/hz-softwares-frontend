@@ -2,7 +2,7 @@ import { Accessor, JSX } from "solid-js";
 
 interface Props extends JSX.ButtonHTMLAttributes<HTMLButtonElement> {
 	loading?: boolean;
-	children: string;
+	children?: string;
 }
 export function Button(props: Props) {
 	if (props.loading)

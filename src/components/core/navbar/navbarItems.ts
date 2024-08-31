@@ -72,4 +72,13 @@ export const navbarItems = [
 			},
 		],
 	},
+	{
+		label: "Applications",
+		items: [
+			{
+				label: "E-Commerce",
+				href: "/applications/e-commerce",
+			},
+		],
+	},
 ];

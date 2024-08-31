@@ -20,6 +20,7 @@
     "vite-plugin-solid": "^2.7.0"
   },
   "dependencies": {
+    "@modular-forms/solid": "^0.22.1",
     "@solidjs/router": "^0.8.3",
     "@tailwindcss/typography": "^0.5.10",
     "@tanstack/eslint-plugin-query": "^5.8.4",
@@ -28,7 +29,7 @@
     "axios": "^1.5.1",
     "lodash": "~4.17.15",
     "solid-flow": "^1.0.4",
-    "solid-js": "^1.7.6",
+    "solid-js": "^1.8.22",
     "solid-toast": "^0.5.0"
   }
 }

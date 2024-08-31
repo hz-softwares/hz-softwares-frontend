@@ -1,6 +1,6 @@
 import { A } from "@solidjs/router";
-import { For } from "solid-js";
 import { navbarItems } from "./navbarItems";
+import { For } from "solid-js";
 
 export function Navbar() {
 	return (
