@@ -67,7 +67,13 @@ export function BStar(props: Props) {
 			id: node.nodeKeys.map((k) => k.key).join("-"),
 			position: { x, y },
 			data: {
-				content: BStarTree.isLeafNode(node) ? <p style={{ width: "100px" }}>Value</p> : null,
+				content: BStarTree.isLeafNode(node) ? (
+					<p style={{ width: "100px" }}>
+						{node.nodeKeys.reduce<string>((prev, curr) => {
+							return `${prev}${curr.value}\n`;
+						}, "")}
+					</p>
+				) : null,
 				label: node.nodeKeys.map((k) => k.key).join(", "),
 			},
 			inputs: node.parent ? 1 : 0,
