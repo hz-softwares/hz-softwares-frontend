@@ -14,6 +14,7 @@ COPY . .
 FROM base AS release
 COPY --from=install /tmp/prod/node_modules node_modules
 COPY --from=prerelease /usr/src/app/src ./src
+COPY --from=prerelease /usr/src/app/public ./public
 COPY --from=prerelease /usr/src/app/package.json .
 COPY --from=prerelease /usr/src/app/vite.config.mjs .
 COPY --from=prerelease /usr/src/app/postcss.config.js .
