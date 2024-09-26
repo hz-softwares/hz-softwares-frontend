@@ -19,5 +19,8 @@ export default defineConfig({
 	},
 	build: {
 		target: "esnext",
+		rollupOptions: {
+			external: ["@tanstack/solid-query"],
+		},
 	},
 });
