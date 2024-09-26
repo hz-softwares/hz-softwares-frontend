@@ -3,5 +3,7 @@
 source ~/.config/zsh/.zshenv
 docker build . -t hadyelzayady1996/light-app-frontend:latest && docker push hadyelzayady1996/light-app-frontend:latest
 
-kitten ssh admin@$LIGHT_APP_EC2_URL -t "cd services && docker compose pull && docker compose up -d"
+scp  ./compose.yaml admin@$LIGHT_APP_EC2_URL:/home/admin/services/frontend/
+
+kitten ssh admin@$LIGHT_APP_EC2_URL -t "cd services/frontend && docker compose pull && docker compose up -d"
 

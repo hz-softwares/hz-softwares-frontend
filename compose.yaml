@@ -1,0 +1,11 @@
+version: '3'
+services:
+  font-end:
+    container_name: frontend
+    image: hadyelzayady1996/light-app-frontend
+    networks:
+      - reverse-proxy
+networks:
+  reverse-proxy:
+    name: reverse-proxy
+    external: true

@@ -27,6 +27,7 @@
     "@tanstack/solid-query": "^5.8.4",
     "@tanstack/solid-query-devtools": "^5.8.4",
     "axios": "^1.5.1",
+    "caniuse-lite": "^1.0.30001663",
     "lodash": "~4.17.15",
     "solid-flow": "^1.0.4",
     "solid-js": "^1.8.22",
