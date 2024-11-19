@@ -1,4 +1,4 @@
-import { type Component } from "solid-js";
+import { lazy, type Component } from "solid-js";
 
 import { Router, Routes, Route } from "@solidjs/router";
 import { Layout } from "./layouts/Layout";
@@ -10,8 +10,10 @@ import { LightQSPage } from "./pages/light-qs/LightQSPage";
 import { LightQsPlaygroundPage } from "./pages/lqs-playground/LightQsPlaygroundPage";
 import { BStar } from "./components/core/b-start/BStar";
 import { HttpPage } from "./pages/http/HttpPage";
-import { ECommercePage } from "./pages/e-commerce/ECommercePage";
 
+const ECommercePage = lazy(() =>
+	import("./pages/e-commerce/ECommercePage").then(({ ECommercePage }) => ({ default: ECommercePage })),
+);
 const queryClient = new QueryClient();
 const App: Component = () => {
 	return (

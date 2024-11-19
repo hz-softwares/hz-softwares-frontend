@@ -1,13 +1,12 @@
 import { A } from "@solidjs/router";
 import { navbarItems } from "./navbarItems";
 import { For } from "solid-js";
-import image from "../../../assets/hz-softwares.webp"
 
 export function Navbar() {
 	return (
 		<div class="navbar bg-base-300 rounded-box">
 			<div class="flex-1 px-2 lg:flex-none">
-      <img width="50" height="50" src="/images/hz-softwares.png"/>
+				<img width="50" height="50" src="/images/hz-softwares.png" />
 				<a class="text-lg font-bold">HZ Software</a>
 			</div>
 			<div class="flex justify-end flex-1 px-2">
@@ -23,7 +22,9 @@ export function Navbar() {
 										{(child) => (
 											<li id={child.label}>
 												{child.href.startsWith("http") ? (
-													<a href={child.href} target="_blank">{child.label}</a>
+													<a href={child.href} target="_blank">
+														{child.label}
+													</a>
 												) : (
 													<A href={child.href}>{child.label}</A>
 												)}

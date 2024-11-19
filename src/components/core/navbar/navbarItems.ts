@@ -76,6 +76,10 @@ export const navbarItems = [
 		label: "Applications",
 		items: [
 			{
+				label: "Infrastructure As Graph (IAG)",
+				href: "https://hz-softwares.iag.io",
+			},
+			{
 				label: "E-Commerce",
 				href: "/applications/e-commerce",
 			},

@@ -3,7 +3,7 @@ import { Button } from "../../shared/button/Button";
 import { BStarNode, BStarTree } from "../../../types/tree/Tree";
 import { Node, SolidFlow } from "solid-flow";
 import { EdgeProps } from "solid-flow/dist/components";
-import  cloneDeep  from "lodash/cloneDeep";
+import cloneDeep from "lodash/cloneDeep";
 
 interface Props {
 	value?: number;
