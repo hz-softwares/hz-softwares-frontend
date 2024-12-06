@@ -10,7 +10,8 @@ import { LightQSPage } from "./pages/light-qs/LightQSPage";
 import { LightQsPlaygroundPage } from "./pages/lqs-playground/LightQsPlaygroundPage";
 import { BStar } from "./components/core/b-start/BStar";
 import { HttpPage } from "./pages/http/HttpPage";
-import { AboutPage } from "./pages/about/AboutPage";
+import { AboutMePage } from "./pages/about/me/AboutMePage";
+import { AboutHzSoftwarePage } from "./pages/about/hz-software/AboutHzSoftware";
 
 const ECommercePage = lazy(() =>
 	import("./pages/e-commerce/ECommercePage").then(({ ECommercePage }) => ({ default: ECommercePage })),
@@ -23,7 +24,8 @@ const App: Component = () => {
 				<Layout>
 					<Routes>
 						<Route path="/" component={HomePage} />
-						<Route path="/about" component={AboutPage} />
+						<Route path="/about/me" component={AboutMePage} />
+						<Route path="/about/hz-software" component={AboutHzSoftwarePage} />
 						<Route path="/algorithms/top-sort" component={TopSortPage} />
 						<Route path="/algorithms/fib-calc" component={FibCalcPage} />
 						<Route path="/cloud/lqs" component={LightQSPage} />

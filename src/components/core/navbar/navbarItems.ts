@@ -1,7 +1,16 @@
 export const navbarItems = [
 	{
 		label: "About",
-		href: "/about",
+		items: [
+			{
+				label: "Me",
+				href: "/about/me",
+			},
+			{
+				label: "hz-software",
+				href: "/about/hz-software",
+			},
+		],
 	},
 	{
 		label: "Algorithms",

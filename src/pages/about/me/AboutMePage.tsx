@@ -1,13 +1,13 @@
-import "./styles.css";
+import "../styles.css";
 
-export function AboutPage() {
+export function AboutMePage() {
 	return (
 		<div class="container">
 			<div class="profile">
 				<img src="/images/me.png" alt="HadyElzayady" class="profile-image" />
 			</div>
 			<div class="about">
-				<h1>HZ-Software</h1>
+				<h1>About Me</h1>
 				<p>
 					Hello! My name is Hady Elzayady, and I am a passionate software engineer with a strong background in
 					full-stack development, systems engineering, and cutting-edge technologies. With expertise in React, Node.js,
