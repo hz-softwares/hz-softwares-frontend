@@ -1,5 +1,9 @@
 export const navbarItems = [
 	{
+		label: "About",
+		href: "/about",
+	},
+	{
 		label: "Algorithms",
 		items: [
 			{

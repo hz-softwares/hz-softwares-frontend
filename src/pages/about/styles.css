@@ -1,0 +1,57 @@
+.container {
+  width: 90%;
+  max-width: 600px;
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  text-align: center;
+}
+
+.profile {
+  background-color: #333;
+  padding: 20px;
+}
+
+.profile-image {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid #fff;
+}
+
+.about {
+  padding: 20px;
+}
+
+.about h1 {
+  margin: 0;
+  color: #333;
+}
+
+.about p {
+  line-height: 1.6;
+  margin: 10px 0;
+}
+
+.contact {
+  background-color: #f9f9f9;
+  padding: 15px;
+  border-top: 1px solid #ddd;
+}
+
+.contact h2 {
+  margin: 0;
+  font-size: 1.2em;
+  color: #444;
+}
+
+.contact a {
+  color: #0066cc;
+  text-decoration: none;
+}
+
+.contact a:hover {
+  text-decoration: underline;
+}
