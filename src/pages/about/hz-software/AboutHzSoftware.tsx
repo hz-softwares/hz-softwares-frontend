@@ -30,7 +30,7 @@ export function AboutHzSoftwarePage() {
 					<li>Cloud services implemented from scratch like distributes queue service similar to aws sqs</li>
 					<li>Minimal tools for my personal usage like brightness control in my arch linux machine</li>
 				</ul>
-				<p>I will try to add tags for uses tools in each software</p>
+				<p>I will try to add tags for used tools in each software</p>
 				<p>Feel free to reach out or connect with me!</p>
 			</div>
 			<div class="contact">

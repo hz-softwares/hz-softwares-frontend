@@ -1,6 +1,6 @@
 version: '3'
 services:
-  font-end:
+  front-end:
     container_name: frontend
     image: hadyelzayady1996/light-app-frontend
     networks:

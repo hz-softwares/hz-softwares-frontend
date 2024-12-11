@@ -13,7 +13,7 @@ export function AboutMePage() {
 					full-stack development, systems engineering, and cutting-edge technologies. With expertise in React, Node.js,
 					Rust, and Kubernetes, I enjoy creating scalable, high-performance applications and tackling challenging
 					architectural problems. I'm particularly interested in distributed systems, cloud computing, and
-					microservices, and I'm always exploring innovative tools like Bun.js, Biome.js, and Drizzle to enhance my
+					micro-services, and I'm always exploring innovative tools like Bun.js, Biome.js, and Drizzle to enhance my
 					workflows. When I'm not coding, I love diving into open-source contributions, building tools to boost
 					productivity, and continuously learning to advance my career. Let’s connect and create something impactful!
 				</p>
