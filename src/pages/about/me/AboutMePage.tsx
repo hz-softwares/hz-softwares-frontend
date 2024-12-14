@@ -11,7 +11,7 @@ export function AboutMePage() {
 				<p>
 					Hello! My name is Hady Elzayady, and I am a passionate software engineer with a strong background in
 					full-stack development, systems engineering, and cutting-edge technologies. With expertise in React, Node.js,
-					Rust, and Kubernetes, I enjoy creating scalable, high-performance applications and tackling challenging
+					and also backend, I enjoy creating scalable, high-performance applications and tackling challenging
 					architectural problems. I'm particularly interested in distributed systems, cloud computing, and
 					micro-services, and I'm always exploring innovative tools like Bun.js, Biome.js, and Drizzle to enhance my
 					workflows. When I'm not coding, I love diving into open-source contributions, building tools to boost
