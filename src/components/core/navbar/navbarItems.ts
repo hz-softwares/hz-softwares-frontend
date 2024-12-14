@@ -1,3 +1,5 @@
+import { IS_DEVELOPMENT } from "../../../constants/env";
+
 export const navbarItems = [
 	{
 		label: "About",
@@ -26,11 +28,13 @@ export const navbarItems = [
 			{
 				label: "Fib Calc",
 				href: "/algorithms/fib-calc",
+				available: IS_DEVELOPMENT,
 			},
 		],
 	},
 	{
 		label: "Systems",
+		available: IS_DEVELOPMENT,
 		items: [
 			{
 				label: "CQRS",
@@ -52,6 +56,7 @@ export const navbarItems = [
 	},
 	{
 		label: "Cloud",
+		available: IS_DEVELOPMENT,
 		items: [
 			{
 				label: "LQS",
@@ -61,6 +66,7 @@ export const navbarItems = [
 	},
 	{
 		label: "Communication",
+		available: IS_DEVELOPMENT,
 		items: [
 			{
 				label: "gRPC",
@@ -78,6 +84,7 @@ export const navbarItems = [
 			{
 				label: "wc tools",
 				href: "/tools/wc",
+				available: IS_DEVELOPMENT,
 			},
 			{
 				label: "Mini Brightness Controller #mini_linux_tools",
@@ -87,6 +94,7 @@ export const navbarItems = [
 	},
 	{
 		label: "Applications",
+		available: IS_DEVELOPMENT,
 		items: [
 			{
 				label: "Infrastructure As Graph (IAG)",
