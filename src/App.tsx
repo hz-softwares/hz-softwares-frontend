@@ -12,12 +12,16 @@ import { BStar } from "./components/core/b-start/BStar";
 import { HttpPage } from "./pages/http/HttpPage";
 import { AboutMePage } from "./pages/about/me/AboutMePage";
 import { AboutHzSoftwarePage } from "./pages/about/hz-software/AboutHzSoftware";
+import { IS_DEVELOPMENT } from "./constants/env";
 
 const ECommercePage = lazy(() =>
 	import("./pages/e-commerce/ECommercePage").then(({ ECommercePage }) => ({ default: ECommercePage })),
 );
 const queryClient = new QueryClient();
 const App: Component = () => {
+  if(IS_DEVELOPMENT){
+    document.title = `${document.title} (development)`
+  }
 	return (
 		<QueryClientProvider client={queryClient}>
 			<Router>
