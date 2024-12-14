@@ -24,6 +24,14 @@ export function AboutMePage() {
 				<p>
 					Email: <a href="mailto:hadyelzayady1996@gmail.com">hadyelzayady1996@gmail.com</a>
 				</p>
+				<div class="social-links">
+					<a href="https://www.linkedin.com/in/hady-elzayady-03030a101/" target="_blank" class="social-link">
+						LinkedIn
+					</a>
+					<a href="https://github.com/hadyelzayady" target="_blank" class="social-link">
+						GitHub
+					</a>
+				</div>
 			</div>
 		</div>
 	);
