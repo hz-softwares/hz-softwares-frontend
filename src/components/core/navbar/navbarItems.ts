@@ -1,6 +1,11 @@
 import { IS_DEVELOPMENT } from "../../../constants/env";
-
-export const navbarItems = [
+type Item = {
+	label: string;
+	items?: Item[];
+	href?: string;
+	available?: boolean;
+};
+export const navbarItems: Item[] = [
 	{
 		label: "About",
 		items: [
@@ -28,6 +33,11 @@ export const navbarItems = [
 			{
 				label: "Fib Calc",
 				href: "/algorithms/fib-calc",
+				available: IS_DEVELOPMENT,
+			},
+			{
+				label: "Sort Algorithms",
+				href: "/algorithms/sort",
 				available: IS_DEVELOPMENT,
 			},
 		],

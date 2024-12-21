@@ -13,15 +13,16 @@ import { HttpPage } from "./pages/http/HttpPage";
 import { AboutMePage } from "./pages/about/me/AboutMePage";
 import { AboutHzSoftwarePage } from "./pages/about/hz-software/AboutHzSoftware";
 import { IS_DEVELOPMENT } from "./constants/env";
+import { SortPage } from "./pages/sort/SortPage";
 
 const ECommercePage = lazy(() =>
 	import("./pages/e-commerce/ECommercePage").then(({ ECommercePage }) => ({ default: ECommercePage })),
 );
 const queryClient = new QueryClient();
 const App: Component = () => {
-  if(IS_DEVELOPMENT){
-    document.title = `${document.title} (development)`
-  }
+	if (IS_DEVELOPMENT) {
+		document.title = `${document.title} (development)`;
+	}
 	return (
 		<QueryClientProvider client={queryClient}>
 			<Router>
@@ -32,6 +33,7 @@ const App: Component = () => {
 						<Route path="/about/hz-software" component={AboutHzSoftwarePage} />
 						<Route path="/algorithms/top-sort" component={TopSortPage} />
 						<Route path="/algorithms/fib-calc" component={FibCalcPage} />
+						<Route path="/algorithms/sort" component={SortPage} />
 						<Route path="/cloud/lqs" component={LightQSPage} />
 						<Route path="/algorithms/b-star" component={BStar} />
 						<Route path="/cloud/lqs-playground" component={LightQsPlaygroundPage} />

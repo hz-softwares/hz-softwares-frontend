@@ -23,19 +23,19 @@ export function Navbar() {
 								</label>
 								<ul tabIndex={0} class="menu bg-base-200 dropdown-content z-[1] p-2 shadow rounded-box w-52 mt-4">
 									<For
-										each={item.items.filter((item) => {
+										each={item.items?.filter((item) => {
 											console.log("filter in", item.label);
 											return item.available || isNil(item.available);
 										})}
 									>
 										{(child) => (
 											<li id={child.label}>
-												{child.href.startsWith("http") ? (
+												{child.href?.startsWith("http") ? (
 													<a href={child.href} target="_blank">
 														{child.label}
 													</a>
 												) : (
-													<A href={child.href}>{child.label}</A>
+													<A href={child.href ?? ""}>{child.label}</A>
 												)}
 											</li>
 										)}
