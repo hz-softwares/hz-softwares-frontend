@@ -11,18 +11,16 @@ export function MergeSort() {
 	const [getGenerated, setGenerated] = createSignal<number[]>([]);
 	const [loading, setLoading] = createSignal(false);
 	const [generating, setGenerating] = createSignal(false);
+	const worker = new Worker(new URL("worker.js", import.meta.url));
 
-	const [worker, start, stop] = createWorker(function generateRandomListOfLength(length: number) {
-		function getRandomInt(max: number) {
-			return Math.floor(Math.random() * max);
-		}
-		const list = new Set();
-		for (let index = 0; index < length; index++) {
-			list.add(getRandomInt(length));
-		}
-		return Array.from(list);
-	});
+	worker.onmessage = (e) => {
+		console.log("recevie message", e);
+		const list = e.data;
 
+		setGenerated(list);
+		setGenerating(false);
+		console.log("Message received from worker");
+	};
 	const { mergeSort } = useMergeSort();
 	const sortedList = createDeferred(() => {
 		console.log("merge");
@@ -58,15 +56,8 @@ export function MergeSort() {
 					onKeyPress={async (e) => {
 						if (e.key === "Enter") {
 							const length = e.currentTarget.valueAsNumber;
-							try {
-								setGenerating(true);
-								const list = await (worker as any).generateRandomListOfLength(length);
-								console.log("list");
-								setGenerated(list);
-							} finally {
-								setGenerating(false);
-								console.log("hhh");
-							}
+							setGenerating(true);
+							worker.postMessage(length);
 						}
 					}}
 				/>
