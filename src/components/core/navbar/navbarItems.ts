@@ -37,8 +37,7 @@ export const navbarItems: Item[] = [
 			},
 			{
 				label: "Sort Algorithms",
-				href: "/algorithms/sort",
-				available: IS_DEVELOPMENT,
+				href: "/algorithms/merge-sort",
 			},
 		],
 	},

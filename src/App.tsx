@@ -33,7 +33,7 @@ const App: Component = () => {
 						<Route path="/about/hz-software" component={AboutHzSoftwarePage} />
 						<Route path="/algorithms/top-sort" component={TopSortPage} />
 						<Route path="/algorithms/fib-calc" component={FibCalcPage} />
-						<Route path="/algorithms/sort" component={SortPage} />
+						<Route path="/algorithms/merge-sort" component={SortPage} />
 						<Route path="/cloud/lqs" component={LightQSPage} />
 						<Route path="/algorithms/b-star" component={BStar} />
 						<Route path="/cloud/lqs-playground" component={LightQsPlaygroundPage} />
