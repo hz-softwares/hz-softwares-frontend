@@ -28,6 +28,7 @@
     "@tanstack/eslint-plugin-query": "^5.57.2",
     "@tanstack/solid-query": "^5.56.2",
     "@tanstack/solid-query-devtools": "^5.58.0",
+    "@tanstack/solid-virtual": "^3.11.2",
     "axios": "^1.7.7",
     "caniuse-lite": "^1.0.30001664",
     "lodash": "~4.17.21",
