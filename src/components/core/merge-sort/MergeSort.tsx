@@ -5,7 +5,7 @@ import styles from "./mergeSort.module.css";
 import { useMergeSort } from "./hooks/useMergeSort";
 import { VirtualList } from "./components/VirtualList";
 
-const MAX_LENGTH = 50_000_0000;
+const MAX_LENGTH = 50_000_000;
 export function MergeSort() {
 	const [value, setValue] = createSignal<number>();
 	const [getGenerated, setGenerated] = createSignal<number[]>([]);
