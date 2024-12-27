@@ -24,7 +24,6 @@ export function Navbar() {
 								<ul tabIndex={0} class="menu bg-base-200 dropdown-content z-[1] p-2 shadow rounded-box w-52 mt-4">
 									<For
 										each={item.items?.filter((item) => {
-											console.log("filter in", item.label);
 											return item.available || isNil(item.available);
 										})}
 									>

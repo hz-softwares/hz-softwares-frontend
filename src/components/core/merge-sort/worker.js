@@ -7,6 +7,5 @@ onmessage = function (e) {
 	for (let index = 0; index < length; index++) {
 		list.add(getRandomInt(length));
 	}
-	console.log("set list");
 	self.postMessage(Array.from(list));
 };

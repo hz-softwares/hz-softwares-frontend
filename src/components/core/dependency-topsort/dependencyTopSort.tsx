@@ -14,7 +14,6 @@ export function DependencyTopSort() {
 		try {
 			setLoading(true);
 			const result = await lightApi.get(`/?name=${inputRef.value}`);
-			console.log("result", result.data, Object.keys(result.data));
 			setTreeData(result.data);
 		} catch (x) {
 			toast(`error ${JSON.stringify(x)}`);

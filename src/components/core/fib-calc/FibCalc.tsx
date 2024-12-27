@@ -12,7 +12,6 @@ export function FibCalc() {
 			const resp = await fetch(`http://localhost:8001/api/fib/${inputRef?.value}`);
 			const result = await resp.json();
 			if (result?.result) {
-				console.log("fasle");
 				setEnabled(false);
 			}
 			return result;

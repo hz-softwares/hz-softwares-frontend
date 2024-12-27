@@ -2,7 +2,6 @@ import { For, JSX } from "solid-js";
 import { QueueMessageDto } from "../../../types/dtos/QueueMessageDto";
 
 export function QueueGeometry(props: { items?: QueueMessageDto[]; onDelete?: (id: string) => void }): JSX.Element {
-	console.log(props);
 	return (
 		<div>
 			<For each={props.items}>

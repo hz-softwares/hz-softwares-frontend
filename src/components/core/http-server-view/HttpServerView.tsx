@@ -9,7 +9,6 @@ export function HttpServerView() {
 			return resp.text();
 		},
 	}));
-	console.log("[LS] -> src/components/core/http-server-view/HttpServerView.tsx:11 -> query: ", query);
 
 	return <div class="http-server">{query.data}</div>;
 }

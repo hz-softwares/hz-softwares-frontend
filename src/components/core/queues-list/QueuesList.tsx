@@ -17,7 +17,6 @@ export function QueuesList(props: Props) {
 		};
 	});
 
-	console.log("outisd3");
 	function onSelect(e: Event & { target: HTMLSelectElement; currentTarget: HTMLSelectElement }) {
 		const queue = query.data?.find((q) => q.id === e.target.value);
 		props.onSelect(queue);

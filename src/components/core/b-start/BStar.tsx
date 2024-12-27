@@ -27,12 +27,10 @@ export function BStar(props: Props) {
 				insertList.push(value);
 				const newRoot = cloneDeep(prev);
 				setUndoStack((undoPrev) => [...undoPrev, prev]);
-				console.log("newRoo");
 				return newRoot;
 			}
 			return prev;
 		});
-		console.log("tree: ", getTree());
 	}
 
 	function deleteKey() {
@@ -54,7 +52,6 @@ export function BStar(props: Props) {
 	function findKey(key: string) {
 		const foundNode = getTree().findNode(key);
 		setSearchNode(foundNode);
-		console.log("foundNode: ", foundNode);
 	}
 	const map = {};
 
@@ -102,15 +99,12 @@ export function BStar(props: Props) {
 		const nodesList: Node[] = [];
 		buildNodes(nodesList, getTree().rootNode, 0, 500);
 		// TODO: do level traversal to adjust y position of nodes to not be overlap
-		console.log("nodesList", nodesList, getTree().rootNode);
 
 		const edgesList: EdgeProps[] = [];
 		buildEdges(edgesList, getTree().rootNode);
-		console.log("edgesList", edgesList);
 		return { nodesList, edgesList };
 	});
 	createEffect(() => {
-		console.log("change in", nodesAndEdges());
 		setRerender(false);
 		setTimeout(() => {
 			setRerender(true);
@@ -193,7 +187,6 @@ export function BStar(props: Props) {
 					nodes={nodesAndEdges().nodesList}
 					edges={nodesAndEdges().edgesList}
 					onNodesChange={(newNodes) => {
-						console.log("onCHange", newNodes);
 						//setNodes(newNodes);
 					}}
 					onEdgesChange={(newEdges) => {

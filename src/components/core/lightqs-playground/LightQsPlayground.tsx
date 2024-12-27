@@ -6,7 +6,6 @@ interface Props {
 }
 export function LightQsPlayground(props: Props) {
 	const onKeyPress: JSX.EventHandler<HTMLInputElement, KeyboardEvent> = (e) => {
-		console.log("eeee", e);
 		if (e.key === "Enter") {
 			lqsApi.post("/api/messages/produce", {
 				queueId: props.queueId,
@@ -16,7 +15,6 @@ export function LightQsPlayground(props: Props) {
 	};
 
 	function consume() {
-		console.log("quue", props.queueId);
 		lqsApi.post("/api/messages/consume", {
 			queueId: props.queueId,
 		});

@@ -20,7 +20,6 @@ export function LightQsPlaygroundPage() {
 				return [];
 			}
 			const resp = await lqsApi.get(`/api/queues/${currentQueue()?.id}/messages`);
-			console.log("data", resp.data);
 			return resp.data.map(mapQueueMessageResourceToDto);
 		},
 		refetchInterval: 3000,

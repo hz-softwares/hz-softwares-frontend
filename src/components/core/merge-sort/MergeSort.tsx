@@ -14,19 +14,15 @@ export function MergeSort() {
 	const worker = new Worker(new URL("worker.js", import.meta.url));
 
 	worker.onmessage = (e) => {
-		console.log("recevie message", e);
 		const list = e.data;
 
 		setGenerated(list);
 		setGenerating(false);
-		console.log("Message received from worker");
 	};
 	const { mergeSort } = useMergeSort();
 	const sortedList = createDeferred(() => {
-		console.log("merge");
 		setLoading(true);
 		const result = mergeSort(getGenerated());
-		console.log("finish merge");
 		setLoading(false);
 		return result;
 	});
