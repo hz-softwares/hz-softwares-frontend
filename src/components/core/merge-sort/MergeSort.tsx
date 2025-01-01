@@ -22,48 +22,60 @@ export function MergeSort() {
 	};
 
 	return (
-		<div>
-			<details>
-				<summary>Merge Sort (upto {MAX_LENGTH} using web workers to not block ui when generating large list)</summary>
-				<p>
-					Used for sorting large dataset or data on disk as merge sort works well with sequential access which comply
-					with disk access
-				</p>
-			</details>
-			<div class={styles.inputSortContainer}>
-				<Input
-					type="number"
-					max={"10000"}
-					value={value()}
-					onInput={(e) => {
-						const number = e.currentTarget.valueAsNumber;
-						if (number > MAX_LENGTH) {
-							setValue(MAX_LENGTH);
-						} else {
-							setValue(number);
-						}
-					}}
-					onKeyPress={async (e) => {
-						if (e.key === "Enter") {
-							const length = e.currentTarget.valueAsNumber;
-							setGenerating(true);
-							worker.postMessage(length);
-						}
-					}}
-				/>
-			</div>
-			<div class={styles.listsContainer}>
-				<div class={styles.list}>
-					<span>Generated List (#elements:{getGenerated().length})</span>
-					<Show when={!generating()} fallback={"...loading"}>
-						<VirtualList items={getGenerated()} />
+		<div class={styles.container}>
+			<div>
+				<details>
+					<summary>Merge Sort (upto {MAX_LENGTH} using web workers to not block ui when generating large list)</summary>
+					<p>
+						Used for sorting large dataset or data on disk as merge sort works well with sequential access which comply
+						with disk access
+					</p>
+				</details>
+				<div class={styles.inputSortContainer}>
+					<Input
+						type="number"
+						max={"10000"}
+						value={value()}
+						onInput={(e) => {
+							const number = e.currentTarget.valueAsNumber;
+							if (number > MAX_LENGTH) {
+								setValue(MAX_LENGTH);
+							} else {
+								setValue(number);
+							}
+						}}
+						onKeyPress={async (e) => {
+							if (e.key === "Enter") {
+								const length = e.currentTarget.valueAsNumber;
+								setGenerating(true);
+								worker.postMessage(length);
+							}
+						}}
+					/>
+
+					<span
+						class="loading-spinner text-primary"
+						classList={{
+							loading: generating() || loading(),
+						}}
+					></span>
+					<Show when={generating() || loading()}>
+						<div>render loading (a proof of rendering is not blocked)</div>
 					</Show>
 				</div>
-				<div class={styles.list}>
-					<span>Sorted List</span>
-					<Show when={!loading() && !generating()} fallback={"...loading"}>
-						<VirtualList items={sortedList()?.toReversed()} />
-					</Show>
+				<div class={styles.listsContainer}>
+					<div class={styles.list}>
+						<span>Generated List (#elements:{getGenerated().length})</span>
+						<Show when={!generating()} fallback={"...loading"}>
+							<VirtualList items={getGenerated()} />
+						</Show>
+					</div>
+					<div class={styles.list}>
+						<span>Sorted List</span>
+						<Show when={!loading() && !generating()} fallback={"...loading"}>
+							<VirtualList items={sortedList()?.toReversed()} />
+						</Show>
+					</div>
 				</div>
 			</div>
 		</div>
