@@ -12,20 +12,15 @@ export function MergeSort() {
 	const [loading, setLoading] = createSignal(false);
 	const [generating, setGenerating] = createSignal(false);
 	const worker = new Worker(new URL("worker.js", import.meta.url));
+	const { mergeSort, result: sortedList } = useMergeSort();
 
 	worker.onmessage = (e) => {
 		const list = e.data;
 
 		setGenerated(list);
 		setGenerating(false);
+    mergeSort(list)
 	};
-	const { mergeSort } = useMergeSort();
-	const sortedList = createDeferred(() => {
-		setLoading(true);
-		const result = mergeSort(getGenerated());
-		setLoading(false);
-		return result;
-	});
 
 	return (
 		<div>
@@ -68,7 +63,7 @@ export function MergeSort() {
 				<div class={styles.list}>
 					<span>Sorted List</span>
 					<Show when={!loading() && !generating()} fallback={"...loading"}>
-						<VirtualList items={sortedList().toReversed()} />
+						<VirtualList items={sortedList()?.toReversed()} />
 					</Show>
 				</div>
 			</div>
