@@ -4,21 +4,22 @@ import { createWorker } from "@solid-primitives/workers";
 import styles from "./mergeSort.module.css";
 import { useMergeSort } from "./hooks/useMergeSort";
 import { VirtualList } from "./components/VirtualList";
-
-const MAX_LENGTH = 50_000_000;
+const MAX_LENGTH = 26_499_999;
 export function MergeSort() {
 	const [value, setValue] = createSignal<number>();
 	const [getGenerated, setGenerated] = createSignal<number[]>([]);
 	const [generating, setGenerating] = createSignal(false);
 	const worker = new Worker(new URL("worker.js", import.meta.url));
-	const { mergeSort, result: sortedList, loading } = useMergeSort();
-
+	const mergeSortHook = useMergeSort();
 	worker.onmessage = (e) => {
 		const list = e.data;
 
 		setGenerated(list);
 		setGenerating(false);
-		mergeSort(list);
+		mergeSortHook.mergeSort(list);
+	};
+	worker.onmessageerror = (e) => {
+		console.log("error in generaring", e);
 	};
 
 	return (
@@ -34,7 +35,7 @@ export function MergeSort() {
 				<div class={styles.inputSortContainer}>
 					<Input
 						type="number"
-						max={"10000"}
+						max={MAX_LENGTH}
 						value={value()}
 						onInput={(e) => {
 							const number = e.currentTarget.valueAsNumber;
@@ -56,10 +57,10 @@ export function MergeSort() {
 					<span
 						class="loading-spinner text-primary"
 						classList={{
-							loading: generating() || loading(),
+							loading: generating() || mergeSortHook.loading(),
 						}}
 					></span>
-					<Show when={generating() || loading()}>
+					<Show when={generating() || mergeSortHook.loading()}>
 						<div>render loading (a proof of rendering is not blocked)</div>
 					</Show>
 				</div>
@@ -72,8 +73,8 @@ export function MergeSort() {
 					</div>
 					<div class={styles.list}>
 						<span>Sorted List</span>
-						<Show when={!loading() && !generating()} fallback={"...loading"}>
-							<VirtualList items={sortedList()?.toReversed()} />
+						<Show when={!mergeSortHook.loading() && !generating()} fallback={"...loading"}>
+							<VirtualList items={mergeSortHook.result()} />
 						</Show>
 					</div>
 				</div>

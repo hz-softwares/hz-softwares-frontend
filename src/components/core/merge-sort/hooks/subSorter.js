@@ -1,24 +1,8 @@
-const worker1 = new Worker(new URL("subSorter.js", import.meta.url));
-const worker2 = new Worker(new URL("subSorter.js", import.meta.url));
-onmessage = async function (e) {
-  worker1.terminate()
-  worker2.terminate()
-	const result = await mergeSort(e.data);
-	self.postMessage(result.toReversed());
+onmessage = function (e) {
+	const result = mergeSort(e.data);
+	self.postMessage(result);
 };
 
-function postMessageAsync(worker, list) {
-	worker.postMessage(list);
-	return new Promise((resolve, reject) => {
-		worker.onmessage = (e) => {
-			resolve(e.data);
-		};
-		worker.onmessgeerror = (e) => {
-			console.log("error", e);
-			reject(e);
-		};
-	});
-}
 function divide(list) {
 	const half = list.length / 2;
 	return [list.slice(0, half), list.slice(half)];
@@ -45,13 +29,12 @@ function join(left, right) {
 	return resultList;
 }
 
-async function mergeSort(list) {
+function mergeSort(list) {
 	if (list.length < 2) {
 		return list;
 	}
 	const [left, right] = divide(list);
-	const leftSortedPromise = postMessageAsync(worker1, left);
-	const rightSortedPromise = postMessageAsync(worker2, right);
-	const [leftSorted, rightSorted] = await Promise.all([leftSortedPromise, rightSortedPromise]);
+	const leftSorted = mergeSort(left);
+	const rightSorted = mergeSort(right);
 	return join(leftSorted, rightSorted);
 }
