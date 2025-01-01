@@ -9,17 +9,16 @@ const MAX_LENGTH = 50_000_000;
 export function MergeSort() {
 	const [value, setValue] = createSignal<number>();
 	const [getGenerated, setGenerated] = createSignal<number[]>([]);
-	const [loading, setLoading] = createSignal(false);
 	const [generating, setGenerating] = createSignal(false);
 	const worker = new Worker(new URL("worker.js", import.meta.url));
-	const { mergeSort, result: sortedList } = useMergeSort();
+	const { mergeSort, result: sortedList, loading } = useMergeSort();
 
 	worker.onmessage = (e) => {
 		const list = e.data;
 
 		setGenerated(list);
 		setGenerating(false);
-    mergeSort(list)
+		mergeSort(list);
 	};
 
 	return (
