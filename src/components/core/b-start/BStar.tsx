@@ -105,6 +105,7 @@ export function BStar(props: Props) {
 		return { nodesList, edgesList };
 	});
 	createEffect(() => {
+    nodesAndEdges()
 		setRerender(false);
 		setTimeout(() => {
 			setRerender(true);
