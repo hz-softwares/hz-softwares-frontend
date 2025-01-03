@@ -1,6 +1,10 @@
-import { createSignal } from "solid-js";
+import { Accessor, createSignal } from "solid-js";
+import mergeSort from "./mergeSort";
 
-export function useMergeSort() {
+interface Props {
+	useWorker: Accessor<boolean>;
+}
+export function useMergeSort(props: Props) {
 	const [loading, setLoading] = createSignal(false);
 	const [result, setResult] = createSignal<number[]>([]);
 
@@ -9,13 +13,19 @@ export function useMergeSort() {
 	worker.onmessage = (e) => {
 		const list: number[] = e.data;
 
-		setResult(list);
 		setLoading(false);
+		setResult(list);
 	};
+
 	function sort(list: number[]) {
 		setLoading(true);
-    worker.terminate()
-		worker.postMessage(list);
+		if (props.useWorker()) {
+			worker.postMessage(list);
+		} else {
+			const sorted = mergeSort(list);
+			setResult(sorted.toReversed());
+			setLoading(false)
+		}
 	}
 	return { mergeSort: sort, loading, result };
 }

@@ -1,8 +1,6 @@
 const worker1 = new Worker(new URL("subSorter.js", import.meta.url));
 const worker2 = new Worker(new URL("subSorter.js", import.meta.url));
 onmessage = async function (e) {
-  worker1.terminate()
-  worker2.terminate()
 	const result = await mergeSort(e.data);
 	self.postMessage(result.toReversed());
 };
@@ -14,7 +12,6 @@ function postMessageAsync(worker, list) {
 			resolve(e.data);
 		};
 		worker.onmessgeerror = (e) => {
-			console.log("error", e);
 			reject(e);
 		};
 	});
