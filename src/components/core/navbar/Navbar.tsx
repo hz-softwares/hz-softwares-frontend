@@ -1,7 +1,7 @@
 import { A } from "@solidjs/router";
-import { navbarItems } from "./navbarItems";
-import { For, Show } from "solid-js";
 import { isNil } from "lodash";
+import { For, Show } from "solid-js";
+import { navbarItems } from "./navbarItems";
 
 export function Navbar() {
 	const availableNavItems = navbarItems.filter((item) => {

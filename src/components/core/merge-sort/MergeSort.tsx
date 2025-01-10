@@ -1,10 +1,10 @@
-import { createEffect, createSignal, Show } from "solid-js";
-import { Input } from "../../shared/input/Input";
-import styles from "./mergeSort.module.css";
-import { VirtualList } from "./components/VirtualList";
-import { useMergeSort } from "./hooks/useMergeSort";
-import { useGenerator } from "./hooks/useGenerator";
+import { Show, createEffect, createSignal } from "solid-js";
 import { Button } from "../../shared/button/Button";
+import { Input } from "../../shared/input/Input";
+import { VirtualList } from "./components/VirtualList";
+import { useGenerator } from "./hooks/useGenerator";
+import { useMergeSort } from "./hooks/useMergeSort";
+import styles from "./mergeSort.module.css";
 const MAX_LENGTH = 30_000_000;
 
 export function MergeSort() {

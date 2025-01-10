@@ -1,6 +1,6 @@
+import { useNavigate } from "@solidjs/router";
 import { JSX, onMount } from "solid-js";
 import { Navbar } from "../components/core/navbar/Navbar";
-import { useNavigate } from "@solidjs/router";
 
 interface Props {
 	children: JSX.Element;

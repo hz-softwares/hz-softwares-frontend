@@ -1,7 +1,7 @@
 import { createQuery } from "@tanstack/solid-query";
-import { QueueResourceDto } from "../../../types/dtos/QueueResourceDto";
-import { mapQueueResourceToDto } from "../../../mappers/resourceMapper";
 import { lqsApi } from "../../../api/light";
+import { mapQueueResourceToDto } from "../../../mappers/resourceMapper";
+import { QueueResourceDto } from "../../../types/dtos/QueueResourceDto";
 
 interface Props {
 	onSelect: (queue?: QueueResourceDto) => void;

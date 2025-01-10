@@ -24,7 +24,7 @@ export function useMergeSort(props: Props) {
 		} else {
 			const sorted = mergeSort(list);
 			setResult(sorted.toReversed());
-			setLoading(false)
+			setLoading(false);
 		}
 	}
 	return { mergeSort: sort, loading, result };

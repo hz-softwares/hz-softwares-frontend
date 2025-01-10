@@ -33,4 +33,4 @@ function mergeSort(list: number[]): number[] {
 	const rightSorted = mergeSort(right);
 	return join(leftSorted, rightSorted);
 }
-export default mergeSort
+export default mergeSort;

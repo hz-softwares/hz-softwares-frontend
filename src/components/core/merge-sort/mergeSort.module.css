@@ -1,31 +1,30 @@
-.container{
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
+.container {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
 }
-.inputSortContainer{
-  display: flex;
-  gap:10px;
-}
-
-.generatedLine{
-  margin-top:10px;
+.inputSortContainer {
+	display: flex;
+	gap: 10px;
 }
 
-.resultContainer{
-  display: flex;
-  flex-direction: row;
-  gap:40px;
-  height:1000px;
-  width:1000px;
+.generatedLine {
+	margin-top: 10px;
 }
 
-
-.listsContainer{
-  margin-top: 20px;
-  display: flex;
-  gap:20px;
+.resultContainer {
+	display: flex;
+	flex-direction: row;
+	gap: 40px;
+	height: 1000px;
+	width: 1000px;
 }
-.checkbox{
-  margin-right:5px;
+
+.listsContainer {
+	margin-top: 20px;
+	display: flex;
+	gap: 20px;
+}
+.checkbox {
+	margin-right: 5px;
 }

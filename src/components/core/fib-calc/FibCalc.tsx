@@ -1,6 +1,6 @@
+import { createQuery } from "@tanstack/solid-query";
 import { createSignal } from "solid-js";
 import { Button } from "../../shared/button/Button";
-import { createQuery } from "@tanstack/solid-query";
 export function FibCalc() {
 	const [fibResult, setFibResult] = createSignal<number | null>(null);
 	const [loading, setLoading] = createSignal(false);

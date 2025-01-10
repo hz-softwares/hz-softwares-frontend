@@ -1,9 +1,9 @@
-import { createEffect, createMemo, createSignal } from "solid-js";
-import { Button } from "../../shared/button/Button";
-import { BStarNode, BStarTree } from "../../../types/tree/Tree";
+import cloneDeep from "lodash/cloneDeep";
 import { Node, SolidFlow } from "solid-flow";
 import { EdgeProps } from "solid-flow/dist/components";
-import cloneDeep from "lodash/cloneDeep";
+import { createEffect, createMemo, createSignal } from "solid-js";
+import { BStarNode, BStarTree } from "../../../types/tree/Tree";
+import { Button } from "../../shared/button/Button";
 
 interface Props {
 	value?: number;
@@ -105,7 +105,7 @@ export function BStar(props: Props) {
 		return { nodesList, edgesList };
 	});
 	createEffect(() => {
-    nodesAndEdges()
+		nodesAndEdges();
 		setRerender(false);
 		setTimeout(() => {
 			setRerender(true);

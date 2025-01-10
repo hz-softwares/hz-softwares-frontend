@@ -15,7 +15,7 @@ export function Input(props: Props) {
 				type="text"
 				placeholder={`Enter ${props.label ?? "Value"}`}
 				class="input input-bordered w-full max-w-xs"
-        value={props.value}
+				value={props.value}
 				{...props}
 			/>
 		</label>

@@ -1,19 +1,19 @@
-import { lazy, type Component } from "solid-js";
+import { type Component, lazy } from "solid-js";
 
-import { Router, Routes, Route } from "@solidjs/router";
-import { Layout } from "./layouts/Layout";
-import { HomePage } from "./pages/home/HomePage";
-import { TopSortPage } from "./pages/top-sort/TopSortPage";
-import { FibCalcPage } from "./pages/fib-calc/FibCalcPage";
+import { Route, Router, Routes } from "@solidjs/router";
 import { QueryClient, QueryClientProvider } from "@tanstack/solid-query";
+import { BStar } from "./components/core/b-start/BStar";
+import { IS_DEVELOPMENT } from "./constants/env";
+import { Layout } from "./layouts/Layout";
+import { AboutHzSoftwarePage } from "./pages/about/hz-software/AboutHzSoftware";
+import { AboutMePage } from "./pages/about/me/AboutMePage";
+import { FibCalcPage } from "./pages/fib-calc/FibCalcPage";
+import { HomePage } from "./pages/home/HomePage";
+import { HttpPage } from "./pages/http/HttpPage";
 import { LightQSPage } from "./pages/light-qs/LightQSPage";
 import { LightQsPlaygroundPage } from "./pages/lqs-playground/LightQsPlaygroundPage";
-import { BStar } from "./components/core/b-start/BStar";
-import { HttpPage } from "./pages/http/HttpPage";
-import { AboutMePage } from "./pages/about/me/AboutMePage";
-import { AboutHzSoftwarePage } from "./pages/about/hz-software/AboutHzSoftware";
-import { IS_DEVELOPMENT } from "./constants/env";
 import { SortPage } from "./pages/sort/SortPage";
+import { TopSortPage } from "./pages/top-sort/TopSortPage";
 
 const ECommercePage = lazy(() =>
 	import("./pages/e-commerce/ECommercePage").then(({ ECommercePage }) => ({ default: ECommercePage })),

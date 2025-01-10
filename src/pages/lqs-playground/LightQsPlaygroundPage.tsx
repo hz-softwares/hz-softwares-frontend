@@ -1,13 +1,13 @@
+import { createQuery } from "@tanstack/solid-query";
 import { createEffect, createSignal } from "solid-js";
+import { lqsApi } from "../../api/light";
 import { LightQsPlayground } from "../../components/core/lightqs-playground/LightQsPlayground";
 import { QueueGeometry } from "../../components/core/queue-geometry/QueueGeometry";
 import { QueuesList } from "../../components/core/queues-list/QueuesList";
-import { QueueResourceDto } from "../../types/dtos/QueueResourceDto";
-import styles from "./LightQsPlaygroundPage.module.css";
-import { createQuery } from "@tanstack/solid-query";
-import { lqsApi } from "../../api/light";
-import { QueueMessageResource } from "../../types/resources/QueueMessageResource";
 import { mapQueueMessageResourceToDto } from "../../mappers/resourceMapper";
+import { QueueResourceDto } from "../../types/dtos/QueueResourceDto";
+import { QueueMessageResource } from "../../types/resources/QueueMessageResource";
+import styles from "./LightQsPlaygroundPage.module.css";
 
 export function LightQsPlaygroundPage() {
 	let [currentQueue, setCurrentQueue] = createSignal<QueueResourceDto | undefined>(undefined);

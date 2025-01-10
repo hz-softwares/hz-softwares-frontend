@@ -1,9 +1,9 @@
-import { createForm, SubmitHandler } from "@modular-forms/solid";
-import { Input } from "../../../shared/input/Input";
-import { Button } from "../../../shared/button/Button";
+import { SubmitHandler, createForm } from "@modular-forms/solid";
 import { createMutation, createQuery } from "@tanstack/solid-query";
-import { eCommerceApi } from "../../../../api/eCommerceApi";
 import { Show } from "solid-js";
+import { eCommerceApi } from "../../../../api/eCommerceApi";
+import { Button } from "../../../shared/button/Button";
+import { Input } from "../../../shared/input/Input";
 type BuyForm = {
 	email: string;
 	itemName: string;

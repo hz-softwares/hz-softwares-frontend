@@ -3,7 +3,7 @@ import { JSX } from "solid-js/jsx-runtime";
 export interface ElementProps<T> {
 	onClick?: JSX.EventHandler<T, MouseEvent>;
 	ref?: T;
-  disabled?: boolean;
+	disabled?: boolean;
 }
 
 interface KeyValuePair<T> {
