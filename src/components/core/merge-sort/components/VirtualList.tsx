@@ -5,7 +5,7 @@ interface Props {
 	items: any[];
 }
 export function VirtualList(props: Props) {
-	let parentRef: HTMLDivElement | undefined = undefined;
+	const parentRef: HTMLDivElement | undefined = undefined;
 
 	const rowVirtualizer = createVirtualizer({
 		count: props.items.length,
