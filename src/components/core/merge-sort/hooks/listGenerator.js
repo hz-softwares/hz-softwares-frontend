@@ -7,7 +7,7 @@ onmessage = async function (e) {
 	const end1 = Math.floor((end - start) / 2);
 	let resultPromise = null;
 	if (start - end > 10_000_000) {
-		const worker = new Worker(new URL("listGenerator.js", import.meta.url));
+		const worker = new Worker(new URL("listGenerator.js", "/"));
 		resultPromise = postMessageAsync(worker, { start: end1, end: end });
 	}
 	for (let index = start; index < end1; index++) {
