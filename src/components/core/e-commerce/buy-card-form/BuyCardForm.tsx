@@ -5,6 +5,7 @@ import { eCommerceApi } from "../../../../api/eCommerceApi";
 import { Button } from "../../../shared/button/Button";
 import { Input } from "../../../shared/input/Input";
 type BuyForm = {
+	id: number;
 	email: string;
 	itemName: string;
 	price: number;
@@ -13,7 +14,7 @@ export function BuyCardForm() {
 	const [buyForm, { Form, Field }] = createForm<BuyForm>();
 	const buyItems = createMutation(() => ({
 		mutationFn: async (values: any) => {
-			const result = eCommerceApi.post("/buy", values);
+			const result = eCommerceApi.post("/order/create", values);
 			return result;
 		},
 	}));
@@ -29,6 +30,13 @@ export function BuyCardForm() {
 					{(field, props) => (
 						<>
 							<Input {...props} label="Email" type="email" />
+						</>
+					)}
+				</Field>
+				<Field name="id" type="number">
+					{(field, props) => (
+						<>
+							<Input {...props} label="Customer Id" type="number" />
 						</>
 					)}
 				</Field>

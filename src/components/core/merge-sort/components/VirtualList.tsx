@@ -1,5 +1,5 @@
-import { createVirtualizer } from "@tanstack/solid-virtual";
 import { For, createEffect } from "solid-js";
+import { createVirtualizer } from "@tanstack/solid-virtual";
 
 interface Props {
 	items: any[];
