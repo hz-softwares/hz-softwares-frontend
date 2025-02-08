@@ -103,10 +103,10 @@ export const navbarItems: Item[] = [
 	},
 	{
 		label: "Applications",
-		available: IS_DEVELOPMENT,
 		items: [
 			{
 				label: "Infrastructure As Graph (IAG)",
+				available: IS_DEVELOPMENT,
 				href: "https://hz-softwares.iag.io",
 			},
 			{
