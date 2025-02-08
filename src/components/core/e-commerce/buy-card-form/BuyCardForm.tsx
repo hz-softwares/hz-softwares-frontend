@@ -5,7 +5,7 @@ import { eCommerceApi } from "../../../../api/eCommerceApi";
 import { Button } from "../../../shared/button/Button";
 import { Input } from "../../../shared/input/Input";
 type BuyForm = {
-	id: number;
+	customerId: number;
 	email: string;
 	itemName: string;
 	price: number;
@@ -33,7 +33,7 @@ export function BuyCardForm() {
 						</>
 					)}
 				</Field>
-				<Field name="id" type="number">
+				<Field name="customerId" type="number">
 					{(field, props) => (
 						<>
 							<Input {...props} label="Customer Id" type="number" />
