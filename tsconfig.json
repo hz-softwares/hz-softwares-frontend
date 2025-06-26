@@ -11,6 +11,10 @@
 		"types": ["vite/client"],
 		"noEmit": true,
 		"isolatedModules": true,
-		"allowJs": false
+		"allowJs": false,
+		"baseUrl": ".",
+		"paths": {
+			"~/*": ["./src/*"]
+		}
 	}
 }
