@@ -1,7 +1,7 @@
-import commonjs from "@rollup/plugin-commonjs";
 import devtools from "solid-devtools/vite";
 import { defineConfig } from "vite";
 import solidPlugin from "vite-plugin-solid";
+import path from "node:path"
 
 export default defineConfig({
 	plugins: [devtools(), solidPlugin()],
