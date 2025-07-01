@@ -1,11 +1,15 @@
-async function fetch(url: string): Promise<{ ok: boolean; json: any }> {
+import type { QueueDto } from "../types";
+
+async function fetch(
+	_url: string,
+): Promise<{ ok: boolean; json: () => QueueDto[] }> {
 	return new Promise((resolve) => {
 		setTimeout(() => {
 			resolve({
 				ok: true,
 				json: () => [
-					{ id: 1, name: "queue1" },
-					{ id: 2, name: "queue2" },
+					{ id: "1", name: "queue1" },
+					{ id: "2", name: "queue2" },
 				],
 			});
 		}, 1000);
