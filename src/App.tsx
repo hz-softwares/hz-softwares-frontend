@@ -1,8 +1,14 @@
-import { type Component } from "solid-js";
-import AppRouter from "./routes/AppRouter";
+import { ColorModeProvider } from "@kobalte/core";
+import { Router } from "@solidjs/router";
+import type { Component } from "solid-js";
+import { routes } from "./routes";
 
 const App: Component = () => {
-	return <AppRouter />;
+	return (
+		<ColorModeProvider initialColorMode="dark">
+			<Router>{routes}</Router>
+		</ColorModeProvider>
+	);
 };
 
 export default App;
