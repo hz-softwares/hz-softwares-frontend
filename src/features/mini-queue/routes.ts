@@ -1,16 +1,21 @@
 import type { RouteDefinition } from "@solidjs/router";
 import { lazy } from "solid-js";
 import { MainLayout } from "~/components/layouts/MainLayout";
+import { MINI_QUEUE_PATHS } from "./paths";
 
-const ListPage = lazy(() => import("./pages/mini-queue/ListPage"));
+const ListPage = lazy(() => import("./pages/list-page/ListPage"));
 
 export const miniQueueRoutes: RouteDefinition[] = [
 	{
-		path: "/mini-queue",
+		path: MINI_QUEUE_PATHS.BASE,
 		component: MainLayout,
 		children: [
 			{
-				path: "/",
+				path: MINI_QUEUE_PATHS.LIST,
+				component: ListPage,
+			},
+			{
+				path: MINI_QUEUE_PATHS.PROFILE.PATH,
 				component: ListPage,
 			},
 		],

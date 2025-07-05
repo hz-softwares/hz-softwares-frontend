@@ -1,6 +1,8 @@
-import { VirtualList } from "@solid-primitives/virtual";
+import { A } from "@solidjs/router";
 import { createResource, ErrorBoundary, Show } from "solid-js";
 import { Flex } from "~/components/ui/flex";
+import { VirtualList } from "~/components/ui/virtual-list";
+import { MINI_QUEUE_PATHS } from "../../paths";
 import queueAPI from "../../services/queueAPI";
 import type { QueueDto } from "../../types";
 
@@ -8,7 +10,7 @@ export default function MiniQueueList() {
 	const [queues] = createResource(queueAPI.fetchQueues);
 
 	return (
-		<Flex flexDirection="row" style={{ "flex-grow": 1 }}>
+		<Flex flexDirection="row">
 			<ErrorBoundary fallback={(err) => <p>Something broke: {err.message}</p>}>
 				<Show when={!queues.loading} fallback={<div>Loading.. </div>}>
 					<VirtualList
@@ -27,5 +29,5 @@ export default function MiniQueueList() {
 }
 
 function QueueListItemRenderer({ item }: { item: QueueDto }) {
-	return <div>{item.name}</div>;
+	return <A href={MINI_QUEUE_PATHS.PROFILE.ROUTE(item.id)}>{item.name}</A>;
 }

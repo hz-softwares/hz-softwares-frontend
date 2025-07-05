@@ -93,6 +93,13 @@
 		--ring: 240 4.9% 83.9%;
 
 		--radius: 0.5rem;
+
+		a {
+			@apply underline text-blue-600;
+		}
+		a:hover {
+			@apply text-blue-800;
+		}
 	}
 }
 
